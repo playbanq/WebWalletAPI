@@ -25,9 +25,9 @@ Each WebWallet is represented as a URL:
     ```
 
 * **Transactions through HTTP methods**  
-Transactions are carried out using HTTP methods with the proper credentials.
+Transactions are carried out using HTTP methods with a valid transaction token.
     
-    **Checking the available balance:**
+    **Checking the balance:**
     ```
     GET /:walletID/balance
     Host: wallet.playbanq.com
@@ -43,8 +43,11 @@ Transactions are carried out using HTTP methods with the proper credentials.
     ```
     
     
-    **Requesting funds for a payment:**
+    **Requesting a payment:**
     ```
-    GET /:walletID/funds/:ammount/:currency
+    POST /:walletID/payments
     Host: wallet.playbanq.com
+    
+    ammount=some-ammount
+    currency=some-currency
     ```
