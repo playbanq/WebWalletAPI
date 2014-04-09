@@ -17,5 +17,12 @@ A WebWallet recharge is interpreted as a purchase intention, therefore it cannot
 ## API Overview
 The WebWallet API defines how to expose and interact with WebWallet instances in order to request and carry out transactions.
 
-+ **Exposure through URLs**  
-Each WebWallet is represented as a URL, and transactions can be requested and carried out using HTTP methods with the proper credentials.
+* **Exposure through URLs**  
+Each WebWallet is represented as a URL:  
+
+    ```
+    wallet.playbanq.com/:walletID
+    ```
+
+* **Transactions through HTTP methods**  
+Transactions are carried out using HTTP methods with the proper credentials.
