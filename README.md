@@ -28,7 +28,7 @@ Each WebWallet is represented as a URL:
 Transactions are carried out using HTTP methods signed with a valid transaction token.
 
     **Request a transaction token**
-    ``
+    ```
     POST /:walletID/transactions HTTP/1.1
     Host: wallet.playbanq.com
     
