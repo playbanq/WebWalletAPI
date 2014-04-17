@@ -15,7 +15,7 @@ A WebWallet recharge is interpreted as a purchase intention, therefore it cannot
 
 
 ## WebWallet Transactions
-WebWallet transactions are bilateral, token-based and expire if not completed within a given time interval.
+WebWallet transactions are bilateral, token-based and expire if not completed within a certain time interval.
 
 + **Bilateral**  
   - WebWallet transactions are carried out in two major stages: creation and completion.  
@@ -23,10 +23,11 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
   - A transaction initiated by one party can only be completed by the other party.  
 
 + **Token-based**  
-
+  - WebWallet transactions are initiated by requesting a transaction token to the WebWallet provider.  
+  - Transaction tokens are created from information such as the transaction type, amount and currency.  
+  - Tokens must be handed over by the initiator party for the other party to complete the transaction.  
 
 + **Expirable**  
-
 
 ## API Overview
 The WebWallet API defines how to expose and interact with WebWallet instances in order to request and carry out transactions.
