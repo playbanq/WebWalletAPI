@@ -38,33 +38,34 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
 ## API Overview
 The WebWallet API defines how to expose and interact with WebWallet instances in order to request and carry out transactions.
 
-* **Exposure through URLs**  
-Each WebWallet is represented as a URL:  
+* **Exposure through URIs**  
+Each WebWallet is represented as a URI:  
 
     ```
     wallet.playbanq.com/:walletID
     ```
 
-* **Transactions through HTTP methods**  
-Transactions are carried out using HTTP methods signed with a valid transaction token.
+* **Secure API calls using tokens**  
+Transactions are authorized by requesting and obtaining a transaction token:
 
-    **Request a transaction token**
     ```
     POST /:walletID/transactions HTTP/1.1
     Host: wallet.playbanq.com
     
-    type=transaction-type
     options=transaction-options
     ```
 
-    **Check the balance:**
+* **Transactions through HTTP methods**  
+Transactions are carried out using HTTP methods signed with a valid transaction token.
+
+    **Checking the balance:**
     ```
     GET /:walletID/balance HTTP/1.1
         ?token=transaction-token
     Host: wallet.playbanq.com
     ```
 
-    **Add funds:**
+    **Adding funds:**
     ```
     POST /:walletID/funds HTTP/1.1
     Host: wallet.playbanq.com
@@ -72,7 +73,7 @@ Transactions are carried out using HTTP methods signed with a valid transaction 
     token=transaction-token
     ```
     
-    **Send/Request a payment:**
+    **Sending/Requesting a payment:**
     ```
     POST /:walletID/payments HTTP/1.1
     Host: wallet.playbanq.com
