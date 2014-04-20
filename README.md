@@ -11,7 +11,7 @@ A WebWallet is a digital wallet that can be recharged using cash to make payment
 A WebWallet is not a deposit account, but a digital wallet to which funds can be added through prepaid recharges in any currency supported by the target merchant and the applicable regulations. 
 
 + **No exchange, but intermediation**  
-A WebWallet is not a currency exchanger, but a temporary intermediary between online buyers and sellers, so its balance is only an indicator of how much money can be routed to a merchant on an actual purchase.
+A WebWallet is not a currency exchanger, but a temporary intermediary between buyers and sellers, so its balance is only an indicator of how much money can be routed to a merchant on an actual purchase.
 
 + **No withdrawals, only payments**  
 A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The balance loaded on a WebWallet cannot be redeemed for cash, so it must be spent on a purchase at some point.
