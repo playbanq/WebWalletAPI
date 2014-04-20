@@ -5,7 +5,7 @@
 This specification defines an API that aims to enable web applications to carry out electronic commerce transactions using WebWallets.
 
 ## What is a WebWallet?
-A WebWallet is a digital wallet that can be recharged using cash to make payments on the Web.
+A WebWallet is a digital wallet that can be recharged using cash to make payments on the web.
 
 + **No deposits, but recharges**  
 A WebWallet is not a deposit account, but a digital wallet to which funds can be added through prepaid recharges in any currency supported by the target merchant and the applicable regulations. 
@@ -42,7 +42,7 @@ The WebWallet API defines how to expose and interact with WebWallet instances in
 Each WebWallet is represented as a URI:  
 
     ```
-    wallet.playbanq.com/:walletID
+    wallet.example.com/:walletID
     ```
 
 * **Secure API calls using tokens**  
@@ -50,7 +50,7 @@ A transaction token must be requested in order to obtain authorization to make A
 
     ```
     POST /:walletID/transactions HTTP/1.1
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     
     options=transaction-options
     ```
@@ -62,13 +62,13 @@ Transactions are carried out using HTTP methods signed with a valid transaction 
     ```
     GET /:walletID/balance HTTP/1.1
         ?token=transaction-token
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     ```
 
     **Adding funds:**
     ```
     POST /:walletID/funds HTTP/1.1
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     
     token=transaction-token
     ```
@@ -76,7 +76,7 @@ Transactions are carried out using HTTP methods signed with a valid transaction 
     **Sending/Requesting a payment:**
     ```
     POST /:walletID/payments HTTP/1.1
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     
     token=transaction-token
     ```
