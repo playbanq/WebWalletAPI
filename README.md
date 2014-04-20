@@ -5,13 +5,13 @@
 This specification defines an API that aims to enable web applications to carry out electronic commerce transactions using WebWallets.
 
 ## What is a WebWallet?
-A WebWallet is a digital wallet that can temporarily store money on the Web for intended online purchases.
+A WebWallet is a digital wallet that can be recharged using cash to make payments on the Web.
 
 + **No deposits, but recharges**  
-A WebWallet is funded through prepaid recharges, and funds can be added in any currency supported by the target merchant and the applicable regulations. 
+A WebWallet is not a deposit account, but a digital wallet to which funds can be added through prepaid recharges in any currency supported by the target merchant and the applicable regulations. 
 
-+ **No retention, but intermediation**  
-A WebWallet is not a savings deposit, but a temporary intermediary between online buyers and sellers, so it is not intended for long term storage of large amounts of money.
++ **No exchange, but intermediation**  
+A WebWallet is not a currency exchanger, but a temporary intermediary between online buyers and sellers, so its balance is only an indicator of how much money can be routed to a merchant on an actual purchase.
 
 + **No withdrawals, only payments**  
 A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The balance loaded on a WebWallet cannot be redeemed for cash, so it must be spent on a purchase at some point.
@@ -46,7 +46,7 @@ Each WebWallet is represented as a URI:
     ```
 
 * **Secure API calls using tokens**  
-Transactions are authorized by requesting and obtaining a transaction token:
+A transaction token must be requested in order to obtain authorization to make API calls:
 
     ```
     POST /:walletID/transactions HTTP/1.1
