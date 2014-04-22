@@ -14,7 +14,7 @@ A WebWallet is not a deposit account, but a rechargeable digital wallet, so fund
 The balance loaded on a WebWallet cannot be withdrawn or redeemed for cash, so it must be spent on a purchase at some point.
 
 + **No exchange, but intermediation**  
- A WebWallet can be recharged in any currency supported by the recharge provider, the WebWallet administrator and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself, but a temporary intermediation between online buyers and sellers.
+A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself, but a temporary intermediation between online buyers and sellers.
 
 
 ## WebWallet Transactions
