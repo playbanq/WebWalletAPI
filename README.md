@@ -8,13 +8,13 @@ This specification defines an API that aims to enable web applications to carry 
 A WebWallet is a digital wallet that can be recharged using cash to make payments on the web.
 
 + **No deposits, but recharges**  
-A WebWallet is not a deposit account, but a rechargeable digital wallet, so funds are not added as deposits but as prepaid recharges.
+A WebWallet is not a deposit account, but a rechargeable digital wallet. Funds are not added as deposits but as prepaid recharges, which represent a temporary intermediation between online buyers and sellers.
 
 + **No withdrawals, only payments**  
-The balance loaded on a WebWallet cannot be withdrawn or redeemed for cash, so it must be spent on a purchase at some point.
+A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The balance loaded on a WebWallet cannot be withdrawn or redeemed for cash, so it must be fully spent at some point.
 
-+ **No exchange, but intermediation**  
-A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself, but a temporary intermediation between online buyers and sellers.
++ **No currency exchange**  
+A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself.
 
 
 ## WebWallet Transactions
@@ -33,10 +33,10 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
 + **Expirable**  
   - Transaction tokens must have an expiration date and receive a timestamp when they are created.  
   - Transactions must be completed by the party that did not create the token before the expiration date.  
-  - If a transaction token expires, the initiator party will need to request a new one and start over.  
+  - If a transaction token expires, the initiator party will need to request a new token and start over.  
 
 ## API Overview
-The WebWallet API defines how to expose and interact with WebWallet instances in order to request and carry out transactions.
+The WebWallet API defines how to expose and interact with WebWallets in order to request and carry out electronic commerce transactions.
 
 * **Exposure through URIs**  
 Each WebWallet is represented as a URI:  
