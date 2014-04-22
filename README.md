@@ -5,12 +5,12 @@
 This specification defines an API that aims to enable web applications to carry out electronic commerce transactions using WebWallets.
 
 ## What is a WebWallet?
-A WebWallet is a digital wallet that can be recharged using cash to make payments on the web.
+A WebWallet is a digital wallet that can be recharged using cash to make micropayments on the web.
 
 + **No deposits, but recharges**  
 A WebWallet is not a deposit account, but a rechargeable digital wallet. Funds are not added as deposits but as prepaid recharges, which represent a temporary intermediation between online buyers and sellers.
 
-+ **No withdrawals, only payments**  
++ **No withdrawals or redemption**  
 A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The balance loaded on a WebWallet cannot be withdrawn or redeemed for cash, so it must be fully spent at some point.
 
 + **No currency exchange**  
