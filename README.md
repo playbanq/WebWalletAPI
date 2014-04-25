@@ -5,30 +5,27 @@
 This specification defines an API that aims to enable web applications to carry out electronic commerce transactions using WebWallets.
 
 ## What is a WebWallet?
-A WebWallet is a digital wallet that can hold electronic money and credentials to make payments on the Web.
+A WebWallet is a rechargeable digital wallet that can hold electronic money and credentials to make payments on the Web.
 
-### Features
-+ **RECHARGEABLE**
-  - **No deposits but recharges**  
-  A WebWallet is not a deposit account, but a rechargeable digital wallet. Funds are not added as deposits but as prepaid recharges, which represent a temporary intermediation between online buyers and sellers.
-  
-  - **No withdrawals or redemption**  
-  A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The balance loaded on a WebWallet cannot be withdrawn or redeemed for cash, so it must be fully spent at some point.
-  
-  - **No currency exchange**  
-  A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself.
+#### Features
++ **No deposits but recharges**  
+A WebWallet is not a deposit account, but a rechargeable digital wallet. Funds are not added as deposits but as prepaid recharges, which represent a temporary intermediation between online buyers and sellers.
+
++ **No withdrawals or redemption**  
+A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The balance loaded on a WebWallet cannot be withdrawn or redeemed for cash, so it must be fully spent at some point.
+
++ **No currency exchange**  
+A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself.
 
 
 ## WebWallet Modules
-The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding identification documents, paper money, cards and receipts.
+The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts.
 
-1. **Credentials**
+1. **Electronic money**
 
-2. **Electronic money**
+2. **Identity credentials**
 
-3. **Cards**
-
-4. **Receipts**
+3. **Receipts**
 
 
 ## WebWallet Transactions
