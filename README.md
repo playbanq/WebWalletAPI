@@ -19,6 +19,18 @@ A WebWallet is a digital wallet that can hold electronic money and credentials t
   A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself.
 
 
+## WebWallet Modules
+The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding identification documents, paper money, cards and receipts.
+
+1. **Credentials**
+
+2. **Electronic money**
+
+3. **Cards**
+
+4. **Receipts**
+
+
 ## WebWallet Transactions
 WebWallet transactions are bilateral, token-based and expire if not completed within a certain time interval.
 
