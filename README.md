@@ -1,4 +1,4 @@
-#The WebWallet API (Draft)
+#The WebWallet API <span>&nbsp;&nbsp;(working draft)</span>
 ###A digital wallet specification for the Web.
 
 ## Abstract
