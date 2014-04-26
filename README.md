@@ -1,8 +1,8 @@
-#The WebWallet API
+#The WebWallet API (Draft)
 ###A digital wallet specification for the Web.
 
 ## Abstract
-This specification defines an API that aims to enable web applications to carry out electronic commerce transactions using WebWallets.
+This specification defines an application programming interface (API) that aims to enable web applications to carry out electronic commerce transactions using WebWallets.
 
 ## What is a WebWallet?
 A WebWallet is a rechargeable digital wallet that can hold electronic money and credentials to make payments on the Web.
@@ -19,13 +19,13 @@ A WebWallet can be recharged in any currency supported by the involved parties a
 
 
 ## WebWallet Modules
-The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts.
+The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts, among others.
 
-1. **Electronic money**
++ **Electronic money**
 
-2. **Identity credentials**
++ **Identity credentials**
 
-3. **Receipts**
++ **Receipts**
 
 
 ## WebWallet Transactions
