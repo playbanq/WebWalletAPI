@@ -12,7 +12,7 @@ A WebWallet is a rechargeable digital wallet that can hold electronic money and 
 A WebWallet is not a deposit account, but a rechargeable digital wallet. Funds are not added as deposits but as prepaid recharges, which represent a temporary intermediation between online buyers and sellers.
 
 + **No withdrawals or redemption**  
-A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The funds added to a WebWallet cannot be withdrawn or redeemed for cash, so it must be fully spent at some point.
+A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The funds added to a WebWallet cannot be withdrawn or redeemed for cash, so they must be fully spent at some point.
 
 + **No currency exchange**  
 A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself.
@@ -22,6 +22,9 @@ A WebWallet can be recharged in any currency supported by the involved parties a
 The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts, among others.
 
 + **Electronic Money**
+The main goal of a WebWallet is to be as easy to use as a physical wallet: put some money on it, and take some money out to make payments. However, since physical money cannot be literally put into a digital wallet, the funds added to a WebWallet must be reflected as an online balance.
+
+The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money by implementing a digital stored value system whose balance reflects the funds that have been added to a WebWallet through prepaid recharges.
 
 + **Identity Credentials**
 
