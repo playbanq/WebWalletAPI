@@ -24,9 +24,9 @@ The WebWallet specification is divided into modules that resemble the different 
 + **Electronic Money**  
 The main goal of a WebWallet is to be as easy to use as a physical wallet: put some money on it, and take some money out to make payments. However, since physical money cannot be literally put into a digital wallet, the funds added to a WebWallet must be reflected as an online balance.  
   
-  _"Electronic money is a digital equivalent of cash, stored on an electronic device or remotely at a server."_ [_(European Comission on E-money)_](http://ec.europa.eu/internal_market/payments/emoney/index_en.htm)
+  _"Electronic money is a digital equivalent of cash, stored on an electronic device or remotely at a server."_ [_(European Comission on E-money)_](http://ec.europa.eu/internal_market/payments/emoney/index_en.htm).
 
-  The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money by implementing a digital stored value system whose balance reflects the available funds of a WebWallet.
+  The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money, by implementing a digital stored value system whose balance reflects the available funds of a WebWallet that were added through prepaid recharges.
 
 + **Identity Credentials**  
 
