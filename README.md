@@ -57,9 +57,15 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
 WebWallet payments come in two flavors: user initiated and merchant initiated.
 
 + **User initiated**  
+  When a user initiates a payment transaction by creating a transaction token, the merchant has to complete the transaction by requesting the payment to the user's wallet:  
+
+  **1.** The user creates a transaction by requesting a transaction token with the payment information.  
+  **2.** The user passes the transaction token to the merchant as an authorization to request the payment.  
+  **3.** The merchant completes the transaction by requesting the payment using the transaction token.  
+  
+  By creating and handing over a payment transaction token to a merchant, a user authorizes the merchant to charge the payment to the user's wallet. This is similar to direct debit and credit card charges that are authorized by subscribing recurring payments, swiping a card or filing its details in a form.
 
 + **Merchant initiated**  
-
 
 ## API Overview
 The WebWallet API defines how to expose and interact with WebWallets in order to request and carry out electronic commerce transactions.
