@@ -12,25 +12,10 @@ A WebWallet is a rechargeable digital wallet that can hold electronic money and 
 A WebWallet is not a deposit account, but a rechargeable digital wallet. Funds are not added as deposits but as prepaid recharges, which represent a temporary intermediation between online buyers and sellers.
 
 + **No withdrawals or redemption**  
-A WebWallet recharge is interpreted as a purchase intention, therefore it cannot be reversed. The funds added to a WebWallet cannot be withdrawn or redeemed for cash, so they must be fully spent at some point.
+A WebWallet recharge is interpreted as a purchase intention, so it cannot be reversed. The funds added to a WebWallet cannot be withdrawn or redeemed for cash, so they must be fully spent at some point.
 
 + **No currency exchange**  
 A WebWallet can be recharged in any currency supported by the involved parties and the applicable regulations. However, a WebWallet recharge is not a currency exchange operation by itself.
-
-
-## WebWallet Modules
-The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts, among others.
-
-+ **Electronic Money**  
-The main goal of a WebWallet is to be as easy to use as a physical wallet: put some money on it, and take some money out to make payments. However, since physical money cannot be literally put into a digital wallet, the funds added to a WebWallet must be reflected as an online balance.  
-  
-  _"Electronic money is a digital equivalent of cash, stored on an electronic device or remotely at a server."_ [_(European Comission on E-money)_](http://ec.europa.eu/internal_market/payments/emoney/index_en.htm).
-
-  The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money, by implementing a digital stored value system whose balance reflects the available funds of a WebWallet that were added through prepaid recharges.
-
-+ **Identity Credentials**  
-
-+ **Receipts**  
 
 
 ## WebWallet Transactions
@@ -50,6 +35,17 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
   - Transaction tokens must have an expiration date and receive a timestamp when they are created.  
   - Transactions must be completed by the party that did not create the token before the expiration date.  
   - If a transaction token expires, the initiator party will need to request a new token and start over.  
+
+
+## WebWallet Modules
+The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts, among others.
+
++ **Electronic Money**  
+The main goal of a WebWallet is to be as easy to use as a physical wallet: put some money on it, and take some money out to make payments. However, since physical money cannot be literally put into a digital wallet, the funds added to a WebWallet must be reflected as an online balance.  
+  
+  _"Electronic money is a digital equivalent of cash, stored on an electronic device or remotely at a server."_ [_(European Comission on E-money)_](http://ec.europa.eu/internal_market/payments/emoney/index_en.htm).
+
+  The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money, by implementing a digital stored value system whose balance reflects the available funds of a WebWallet that were added through prepaid recharges.
 
 
 ## API Overview
@@ -155,4 +151,4 @@ WebWallet payments come in two flavors: user initiated and merchant initiated.
     token=transaction-token
     ```  
 
-  By creating and handing over a payment transaction token to a user, a merchant requests or demands the user to send the payment to the merchant's wallet. This is similar to cash transactions in which a merchant communicates the payment ammount and waits for the user to hand over the money.
+  By creating and handing over a payment transaction token to a user, a merchant requests or demands the user to send the payment to the merchant's wallet. This is similar to cash transactions in which a merchant communicates the payment ammount (e.g. invoice) and waits for the user to hand over the money.
