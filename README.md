@@ -51,17 +51,27 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
   - Transactions must be completed by the party that did not create the token before the expiration date.  
   - If a transaction token expires, the initiator party will need to request a new token and start over.  
 
+## WebWallet Transaction Flow
+
+#### Payments
+WebWallet payments come in two flavors: user initiated and merchant initiated.
+
++ **User initiated**  
+
++ **Merchant initiated**  
+
+
 ## API Overview
 The WebWallet API defines how to expose and interact with WebWallets in order to request and carry out electronic commerce transactions.
 
-* **Exposure through URIs**  
++ **Exposure through URIs**  
 Each WebWallet is represented as a URI:  
 
     ```
     wallet.example.com/:walletID
     ```
 
-* **Secure API calls using tokens**  
++ **Secure API calls using tokens**  
 A transaction token must be requested in order to obtain authorization to make API calls:
 
     ```
@@ -71,7 +81,7 @@ A transaction token must be requested in order to obtain authorization to make A
     options=transaction-options
     ```
 
-* **Transactions through HTTP methods**  
++ **Transactions through HTTP methods**  
 Transactions are carried out using HTTP methods signed with a valid transaction token.
 
     **Checking the balance:**
