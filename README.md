@@ -103,20 +103,38 @@ Transactions are carried out using HTTP methods signed with a valid transaction 
 #### Payments
 WebWallet payments come in two flavors: user initiated and merchant initiated.
 
-+ **User initiated**  
++ **User initiated: merchant charges**  
   When a user initiates a payment transaction, the merchant has to complete it by charging the payment:  
 
   **1.** The user creates a transaction by requesting a transaction token with the payment information.  
+    ```
+    POST /:userWalletID/transactions HTTP/1.1
+    Host: wallet.example.com
+    
+    options=transaction-options
+    ```  
   **2.** The user passes the transaction token to the merchant as an authorization to request the payment.  
-  **3.** The merchant completes the transaction by charging the payment using the transaction token.  
+    ```
+    POST /:merchantWalletID/payments HTTP/1.1
+    Host: wallet.example.com
+    
+    token=transaction-token
+    ```  
+  **3.** The merchant completes the transaction by posting the payment request using the transaction token.  
+    ```
+    POST /transactions/payments HTTP/1.1
+    Host: wallet.example.com
+    
+    token=transaction-token
+    ```  
   
   By creating and handing over a payment transaction token to a merchant, a user authorizes the merchant to charge the payment to the user's wallet. This is similar to direct debit and credit card charges that are authorized by subscribing recurring payments, swiping a card or filling an online form with its details.
 
-+ **Merchant initiated**  
++ **Merchant initiated: user pays**  
   When a merchant initiates a payment transaction, the user has to complete it by sending the payment:  
 
   **1.** The merchant creates a transaction by requesting a transaction token with the payment information.  
   **2.** The merchant passes the transaction token to the user as a request or demand to make a payment.  
-  **3.** The user completes the transaction by sending the payment using the transaction token.  
+  **3.** The user completes the transaction by posting the payment using the transaction token.  
 
   By creating and handing over a payment transaction token to a user, a merchant requests or demands the user to send the payment to the merchant's wallet. This is similar to cash transactions in which a merchant communicates the payment ammount and waits for the user to hand over the money.
