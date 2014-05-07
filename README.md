@@ -122,7 +122,7 @@ WebWallet payments come in two flavors: user initiated and merchant initiated.
     ```  
   **3.** The merchant completes the transaction by posting the payment request using the transaction token.  
     ```
-    POST /transactions/payments HTTP/1.1
+    POST /:userWalletID/payments HTTP/1.1
     Host: wallet.example.com
     
     token=transaction-token
@@ -134,7 +134,25 @@ WebWallet payments come in two flavors: user initiated and merchant initiated.
   When a merchant initiates a payment transaction, the user has to complete it by sending the payment:  
 
   **1.** The merchant creates a transaction by requesting a transaction token with the payment information.  
+    ```
+    POST /:merchantWalletID/transactions HTTP/1.1
+    Host: wallet.example.com
+    
+    options=transaction-options
+    ```  
   **2.** The merchant passes the transaction token to the user as a request or demand to make a payment.  
+    ```
+    POST /:userWalletID/payments HTTP/1.1
+    Host: wallet.example.com
+    
+    token=transaction-token
+    ```  
   **3.** The user completes the transaction by posting the payment using the transaction token.  
+    ```
+    POST /:merchantWalletID/payments HTTP/1.1
+    Host: wallet.example.com
+    
+    token=transaction-token
+    ```  
 
   By creating and handing over a payment transaction token to a user, a merchant requests or demands the user to send the payment to the merchant's wallet. This is similar to cash transactions in which a merchant communicates the payment ammount and waits for the user to hand over the money.
