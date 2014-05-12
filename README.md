@@ -41,7 +41,9 @@ WebWallet transactions are bilateral, token-based and expire if not completed wi
 The WebWallet specification is divided into modules that resemble the different pockets of a physical wallet intended for holding paper money, identification documents, cards and receipts, among others.
 
 + **Electronic Money**  
-The main goal of a WebWallet is to be as easy to use as a physical wallet: put some money on it, and take some money out to make payments. In the context of digital wallets, money is referred to as electronic money.  
+The main goal of a WebWallet is to be as easy to use as a physical wallet: put some money on it, and take some money out to make payments. 
+
+In the context of digital wallets, money is referred to as electronic money, so funds are added againt equal amounts of fiat currency. Electronic money must not be confused with virtual currencies, since the latter have no fiat currency counterparts.  
   
   _"Electronic money is a digital equivalent of cash, stored on an electronic device or remotely at a server."_ [_(European Comission on E-money)_](http://ec.europa.eu/internal_market/payments/emoney/index_en.htm). _"E-money is a mechanism for interacting with government-issued and regulated currencies"_ [_(CGAP.org)_](http://www.cgap.org/news/bitcoin-vs-electronic-money-digital-different).
 
