@@ -47,7 +47,7 @@ The WebWallet specification is divided into modules that resemble the different 
   
   _"Electronic money is a digital equivalent of cash, stored on an electronic device or remotely at a server."_ [_(European Comission on E-money)_](http://ec.europa.eu/internal_market/payments/emoney/index_en.htm). _"E-money is a mechanism for interacting with government-issued and regulated currencies"_ [_(CGAP.org)_](http://www.cgap.org/news/bitcoin-vs-electronic-money-digital-different).
 
-  The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money, by implementing a digital stored value system whose value is equal to the amount of fiat currency recharged and accounts for the value that was previously available.
+  The purpose of the Electronic Money module is to resemble the pocket of a physical wallet that is used for holding paper money, by implementing a digital stored value system that reflects the amount of fiat currency recharged and deducts the value spent or hold for payments.
 
 
 ## API Overview
