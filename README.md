@@ -113,7 +113,7 @@ WebWallet payments come in two flavors: user initiated and merchant initiated.
     ```  
   **2.** The user passes the transaction token to the merchant as an authorization to request the payment.  
     ```
-    POST /:merchantWalletID/payments HTTP/1.1
+    POST /:merchantWalletID/tokens HTTP/1.1
     Host: wallet.example.com
     
     token=transaction-token
@@ -140,7 +140,7 @@ WebWallet payments come in two flavors: user initiated and merchant initiated.
     ```  
   **2.** The merchant passes the transaction token to the user as a request or demand to make a payment.  
     ```
-    POST /:userWalletID/payments HTTP/1.1
+    POST /:userWalletID/tokens HTTP/1.1
     Host: wallet.example.com
     
     token=transaction-token
