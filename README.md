@@ -90,11 +90,11 @@ base64urlEncodedHeader.base64urlEncodedPayload.base64urlEncodedCryptographicSign
 ## API Overview
 The WebWallet API defines how to expose and interact with WebWallets in order to request and carry out electronic commerce transactions.
 
-+ **/dialog/oauth**  
++ **/oauth/authorize**  
   This endpoint allows applications to obtain access tokens for the implicit and authorization code grant types according to the IETF's RFC 6749 Oauth 2.0 specification.
 
   ```
-  GET /dialog/oauth HTTP/1.1
+  GET /oauth/authorize HTTP/1.1
       
   Host: wallet.playbanq.com
   ```
@@ -104,7 +104,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
 
     GET request structure:
     ```
-    GET wallet.playbanq.com/dialog/oauth HTTP/1.1
+    GET wallet.playbanq.com/oauth/authorize HTTP/1.1
         ?response_type=token
         &client_id=CLIENT_ID
         &redirect_uri=REDIRECT_URI
@@ -126,7 +126,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
   
     GET request structure:
     ```
-    GET wallet.playbanq.com/dialog/oauth HTTP/1.1
+    GET wallet.playbanq.com/oauth/authorize HTTP/1.1
         ?response_type=code
         &client_id=CLIENT_ID
         &redirect_uri=REDIRECT_URI
