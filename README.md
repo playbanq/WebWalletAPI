@@ -122,7 +122,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ```
     
   - **Authorization code grant type (part 1):**  
-    Server-based applications can use this flow to get an access code and then exchange it for an access token by making a call to the **/oauth/token** endpoint. The WebWallet owner will be prompted to login if necessary and to accept or decline the authorization request. Finally the user agent will be redirected to the specified URI with the authorization response as a query parameter.
+    Server-based applications can use this flow to get an authorization code and then exchange it for an access token by making a call to the **/oauth/token** endpoint. The WebWallet owner will be prompted to login if necessary and to accept or decline the authorization request. Finally the user agent will be redirected to the specified URI with the authorization response as a query parameter.
   
     GET request structure:
     ```
@@ -135,15 +135,15 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     
     Successful GET response:
     ```
-    http(s)://REDIRECT_URI?code=THE_CODE
+    http(s)://REDIRECT_URI?code=AUTHORIZATION_CODE
     ```
     
     Unsuccessful GET response:
     ``` 
-    http(s)://REDIRECT_URI?error=THE_ERROR
+    http(s)://REDIRECT_URI?error=AUTHORIZATION_ERROR
     ```
     
-    After obtaining an access code, an application will be able to exchange it for an access token as shown in **/oauth/token** Authorization code grant type (part 2).
+    After obtaining an authorization code, an application will be able to exchange it for an access token as shown in **/oauth/token** Authorization code grant type (part 2).
 
 + **/oauth/token**  
   This endpoint allows applications to obtain access tokens for the client credentials grant type according to the IETF's RFC 6749 Oauth 2.0 specification.
@@ -179,7 +179,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ``` js
     {
       "grant_type": "authorization_code",
-      "code": <access_code>,
+      "code": <authorization_code>,
       "redirect_uri": <redirect_uri>,
       "client_id": <client_id>,
       "client_secret": <client_secret>
