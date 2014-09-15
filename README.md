@@ -251,13 +251,17 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "charges"
          "target": <walletID>,
+         "amount": <totalAmount>,
          "currency": <currencyCode>,
-         "subtotal": <subtotalAmount>,
-         "taxes": <taxAmount>,
-         "fees": <feeAmount>,
-         "other": <otherAmount>,
-         "total": <totalAmount>,
-         "description": <chargeDescription>
+         // optional:
+         "details": {
+           "subtotal": <subtotalAmount>,
+           "taxes": <taxAmount>,
+           "fees": <feeAmount>,
+           "other": <otherAmount>
+         },
+         "description": <chargeDescription>,
+         "metadata": {chargeMetadata}
       },
       "signature": <hs256(payload)>
     }
@@ -269,13 +273,17 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "charges",
          "target": <walletID>,
+         "amount": <totalAmount>,
          "currency": <currencyCode>,
-         "subtotal": <subtotalAmount>,
-         "taxes": <taxAmount>,
-         "fees": <feeAmount>,
-         "other": <otherAmount>,
-         "total": <totalAmount>,
+         "details": {
+           "subtotal": <subtotalAmount>,
+           "taxes": <taxAmount>,
+           "fees": <feeAmount>,
+           "other": <otherAmount>
+         },
          "description": <chargeDescription>,
+         "metadata": {chargeMetadata},
+         "timestamp": <creationTime>,
          "reference": <string>,
          "success": true
       }
@@ -300,13 +308,17 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "invoices",
          "target": <walletID>,
+         "amount": <totalAmount>,
          "currency": <currencyCode>,
-         "subtotal": <subtotalAmount>,
-         "taxes": <taxAmount>,
-         "fees": <feeAmount>,
-         "other": <otherAmount>,
-         "total": <totalAmount>,
-         "description": <invoiceDescription>
+         // optional:
+         "details": {
+           "subtotal": <subtotalAmount>,
+           "taxes": <taxAmount>,
+           "fees": <feeAmount>,
+           "other": <otherAmount>
+         },
+         "description": <invoiceDescription>,
+         "metadata": {invoiceMetadata}
       },
       "signature": <hs256(payload)>
     }
@@ -318,13 +330,17 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "invoices",
          "target": <walletID>,
+         "amount": <totalAmount>,
          "currency": <currencyCode>,
-         "subtotal": <subtotalAmount>,
-         "taxes": <taxAmount>,
-         "fees": <feeAmount>,
-         "other": <otherAmount>,
-         "total": <totalAmount>,
+         "details": {
+           "subtotal": <subtotalAmount>,
+           "taxes": <taxAmount>,
+           "fees": <feeAmount>,
+           "other": <otherAmount>
+         },
          "description": <invoiceDescription>,
+         "metadata": {invoiceMetadata},
+         "timestamp": <creationTime>,
          "reference": <string>,
          "success": true
       }
@@ -350,7 +366,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "refills",
          "target": <walletID>,
-         "total": <refillAmount>,
+         "amount": <refillAmount>,
          "currency": <currencyCode>
       },
       "signature": <hs256(payload)>
@@ -363,8 +379,9 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "refills",
          "target": <walletID>,
-         "total": <refillAmount>,
+         "amount": <refillAmount>,
          "currency": <currencyCode>,
+         "timestamp": <refundTime>,
          "reference": <string>,
          "success": true
       }
@@ -390,7 +407,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "refunds",
          "target": <walletID>,
-         "total": <refundAmount>,
+         "amount": <refundAmount>,
          "currency": <currencyCode>,
          "transaction": <transactionToRefund>,
          "description": <refundDescription>
@@ -405,10 +422,11 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "endpoint": "refunds",
          "target": <walletID>,
-         "total": <refundAmount>,
+         "amount": <refundAmount>,
          "currency": <currencyCode>,
          "transaction": <transactionToRefund>,
          "description": <refundDescription>,
+         "timestamp": <refundTime>,
          "reference": <string>,
          "success": true
       }
