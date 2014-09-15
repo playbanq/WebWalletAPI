@@ -222,10 +222,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     {
       "payload": [
          {
-            "total": <number>,
-            "pending": <number>,
+            "currency": "<currencyCode>",
             "available": <number>,
-            "currency": "<currencyCode>"
+            "pending": <number>,
+            "total": <number>,
          }
       ]
     }
