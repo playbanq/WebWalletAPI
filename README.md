@@ -225,6 +225,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
             "amount": <number>,
             "currency": "<currencyCode>"
          },
+         "pending": {
+            "amount": <number>,
+            "currency": "<currencyCode>"
+         },
          "available": {
             "amount": <number>,
             "currency": <currencyCode>
