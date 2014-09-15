@@ -222,7 +222,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     {
       "payload": [
          {
-            "currency": "<currencyCode>",
+            "currency": <currencyCode>,
             "available": <number>,
             "pending": <number>,
             "total": <number>,
@@ -249,11 +249,15 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "alg": "hs256"
       },
       "payload": {
-         "target": <walletID>,
-         "amount": <chargeAmount>,
-         "currency": <currencyCode>,
-         "description": <chargeDescription>,
          "endpoint": "charges"
+         "target": <walletID>,
+         "currency": <currencyCode>,
+         "amount": <partialAmount>,
+         "taxes": <taxAmount>,
+         "fees": <feeAmount>,
+         "other": <otherAmount>,
+         "total": <totalAmount>,
+         "description": <chargeDescription>
       },
       "signature": <hs256(payload)>
     }
@@ -263,17 +267,69 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ``` js
     {
       "payload": {
-         "target": <walletID>,
-         "amount": <chargeAmount>,
-         "currency": <currencyCode>,
-         "description": <chargeDescription>,
          "endpoint": "charges",
+         "target": <walletID>,
+         "currency": <currencyCode>,
+         "amount": <partialAmount>,
+         "taxes": <taxAmount>,
+         "fees": <feeAmount>,
+         "other": <otherAmount>,
+         "total": <totalAmount>,
+         "description": <chargeDescription>,
          "reference": <string>,
          "success": true
       }
     }
     
-  
+  - **/invoices**  
+    This endpoint allows applications to send an invoice to a WebWallet.
+    ```
+    POST /:walletID/invoices HTTP/1.1
+         /:walletNamespace/:walletNumber/invoices HTTP/1.1
+
+    Host: wallet.playbanq.com
+    Authorization: Bearer <TOKEN>
+    ```
+    
+    POST request structure:
+    ``` js
+    {
+      "header": {
+         "alg": "hs256"
+      },
+      "payload": {
+         "endpoint": "invoices",
+         "target": <walletID>,
+         "currency": <currencyCode>,
+         "amount": <partialAmount>,
+         "taxes": <taxAmount>,
+         "fees": <feeAmount>,
+         "other": <otherAmount>,
+         "total": <totalAmount>,
+         "description": <invoiceDescription>
+      },
+      "signature": <hs256(payload)>
+    }
+    ```
+    
+    Successful POST response:
+    ``` js
+    {
+      "payload": {
+         "endpoint": "invoices",
+         "target": <walletID>,
+         "currency": <currencyCode>,
+         "amount": <partialAmount>,
+         "taxes": <taxAmount>,
+         "fees": <feeAmount>,
+         "other": <otherAmount>,
+         "total": <totalAmount>,
+         "description": <invoiceDescription>,
+         "reference": <string>,
+         "success": true
+      }
+    }
+    ```
   - **/refills**  
     This endpoint allows applications to request refills for a WebWallet from its parent WebWallet.
     
