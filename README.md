@@ -255,10 +255,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "currency": <currencyCode>,
          // optional:
          "details": {
-           "subtotal": <subtotalAmount>,
-           "taxes": <taxAmount>,
-           "fees": <feeAmount>,
-           "other": <otherAmount>
+            "subtotal": <subtotalAmount>,
+            "taxes": <taxAmount>,
+            "fees": <feeAmount>,
+            "other": <otherAmount>
          },
          "description": <chargeDescription>,
          "metadata": {chargeMetadata}
@@ -276,10 +276,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "amount": <totalAmount>,
          "currency": <currencyCode>,
          "details": {
-           "subtotal": <subtotalAmount>,
-           "taxes": <taxAmount>,
-           "fees": <feeAmount>,
-           "other": <otherAmount>
+            "subtotal": <subtotalAmount>,
+            "taxes": <taxAmount>,
+            "fees": <feeAmount>,
+            "other": <otherAmount>
          },
          "description": <chargeDescription>,
          "metadata": {chargeMetadata},
@@ -312,10 +312,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "currency": <currencyCode>,
          // optional:
          "details": {
-           "subtotal": <subtotalAmount>,
-           "taxes": <taxAmount>,
-           "fees": <feeAmount>,
-           "other": <otherAmount>
+            "subtotal": <subtotalAmount>,
+            "taxes": <taxAmount>,
+            "fees": <feeAmount>,
+            "other": <otherAmount>
          },
          "description": <invoiceDescription>,
          "metadata": {invoiceMetadata}
@@ -333,10 +333,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "amount": <totalAmount>,
          "currency": <currencyCode>,
          "details": {
-           "subtotal": <subtotalAmount>,
-           "taxes": <taxAmount>,
-           "fees": <feeAmount>,
-           "other": <otherAmount>
+            "subtotal": <subtotalAmount>,
+            "taxes": <taxAmount>,
+            "fees": <feeAmount>,
+            "other": <otherAmount>
          },
          "description": <invoiceDescription>,
          "metadata": {invoiceMetadata},
@@ -381,7 +381,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "target": <walletID>,
          "amount": <refillAmount>,
          "currency": <currencyCode>,
-         "timestamp": <refundTime>,
+         "timestamp": <refillTime>,
          "reference": <string>,
          "success": true
       }
