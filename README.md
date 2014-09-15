@@ -252,7 +252,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "endpoint": "charges"
          "target": <walletID>,
          "currency": <currencyCode>,
-         "amount": <partialAmount>,
+         "subtotal": <subtotalAmount>,
          "taxes": <taxAmount>,
          "fees": <feeAmount>,
          "other": <otherAmount>,
@@ -270,7 +270,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "endpoint": "charges",
          "target": <walletID>,
          "currency": <currencyCode>,
-         "amount": <partialAmount>,
+         "subtotal": <subtotalAmount>,
          "taxes": <taxAmount>,
          "fees": <feeAmount>,
          "other": <otherAmount>,
@@ -301,7 +301,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "endpoint": "invoices",
          "target": <walletID>,
          "currency": <currencyCode>,
-         "amount": <partialAmount>,
+         "subtotal": <subtotalAmount>,
          "taxes": <taxAmount>,
          "fees": <feeAmount>,
          "other": <otherAmount>,
@@ -319,7 +319,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "endpoint": "invoices",
          "target": <walletID>,
          "currency": <currencyCode>,
-         "amount": <partialAmount>,
+         "subtotal": <subtotalAmount>,
          "taxes": <taxAmount>,
          "fees": <feeAmount>,
          "other": <otherAmount>,
@@ -348,10 +348,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "alg": "hs256"
       },
       "payload": {
+         "endpoint": "refills",
          "target": <walletID>,
-         "amount": <refillAmount>,
-         "currency": <currencyCode>,
-         "endpoint": "refills"
+         "total": <refillAmount>,
+         "currency": <currencyCode>
       },
       "signature": <hs256(payload)>
     }
@@ -361,10 +361,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ``` js
     {
       "payload": {
-         "target": <walletID>,
-         "amount": <refillAmount>,
-         "currency": <currencyCode>,
          "endpoint": "refills",
+         "target": <walletID>,
+         "total": <refillAmount>,
+         "currency": <currencyCode>,
          "reference": <string>,
          "success": true
       }
@@ -388,11 +388,12 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "alg": "hs256"
       },
       "payload": {
+         "endpoint": "refunds",
          "target": <walletID>,
-         "amount": <refundAmount>,
+         "total": <refundAmount>,
          "currency": <currencyCode>,
-         "description": <refundDescription>,
-         "endpoint": "refunds"
+         "transaction": <transactionToRefund>,
+         "description": <refundDescription>
       },
       "signature": <hs256(payload)>
     }
@@ -402,11 +403,12 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ``` js
     {
       "payload": {
-         "target": <walletID>,
-         "amount": <refundAmount>,
-         "currency": <currencyCode>,
-         "description": <refundDescription>,
          "endpoint": "refunds",
+         "target": <walletID>,
+         "total": <refundAmount>,
+         "currency": <currencyCode>,
+         "transaction": <transactionToRefund>,
+         "description": <refundDescription>,
          "reference": <string>,
          "success": true
       }
