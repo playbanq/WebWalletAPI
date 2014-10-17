@@ -288,6 +288,50 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "success": true
       }
     }
+    ```
+    
+  - **/payments**  
+    This endpoint allows applications to send a payment to a WebWallet.
+
+    ```
+    POST /:walletID/payments HTTP/1.1
+         /:walletNamespace/:walletNumber/payments HTTP/1.1
+
+    Host: wallet.playbanq.com
+    Authorization: Bearer <TOKEN>
+    ```
+    
+    POST request structure:
+    ``` js
+    {
+      "header": {
+         "alg": "hs256"
+      },
+      "payload": {
+         "target": <walletID>,
+         "amount": <paymentAmount>,
+         "currency": <currencyCode>,
+         "description": <paymentDescription>,
+         "endpoint": "payments"
+      },
+      "signature": <hs256(payload)>
+    }
+    ```
+    
+    Successful POST response:
+    ``` js
+    {
+      "payload": {
+         "target": <walletID>,
+         "amount": <paymentAmount>,
+         "currency": <currencyCode>,
+         "description": <paymentDescription>,
+         "endpoint": "payments",
+         "reference": <string>,
+         "success": true
+      }
+    }
+    ```
     
   - **/invoices**  
     This endpoint allows applications to send an invoice to a WebWallet.
@@ -346,6 +390,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       }
     }
     ```
+    
   - **/refills**  
     This endpoint allows applications to request refills for a WebWallet from its parent WebWallet.
     
@@ -386,6 +431,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "success": true
       }
     }
+    ```
 
   - **/refunds**  
     This endpoint allows applications to send refunds to a WebWallet.
@@ -431,3 +477,4 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "success": true
       }
     }
+    ```
