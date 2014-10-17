@@ -308,11 +308,19 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "alg": "hs256"
       },
       "payload": {
-         "target": <walletID>,
-         "amount": <paymentAmount>,
-         "currency": <currencyCode>,
-         "description": <paymentDescription>,
          "endpoint": "payments"
+         "target": <walletID>,
+         "amount": <totalAmount>,
+         "currency": <currencyCode>,
+         // optional:
+         "details": {
+            "subtotal": <subtotalAmount>,
+            "taxes": <taxAmount>,
+            "fees": <feeAmount>,
+            "other": <otherAmount>
+         },
+         "description": <paymentDescription>,
+         "metadata": {paymentMetadata}
       },
       "signature": <hs256(payload)>
     }
@@ -322,11 +330,19 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ``` js
     {
       "payload": {
-         "target": <walletID>,
-         "amount": <paymentAmount>,
-         "currency": <currencyCode>,
-         "description": <paymentDescription>,
          "endpoint": "payments",
+         "target": <walletID>,
+         "amount": <totalAmount>,
+         "currency": <currencyCode>,
+         "details": {
+            "subtotal": <subtotalAmount>,
+            "taxes": <taxAmount>,
+            "fees": <feeAmount>,
+            "other": <otherAmount>
+         },
+         "description": <paymentDescription>,
+         "metadata": {paymentMetadata},
+         "timestamp": <creationTime>,
          "reference": <string>,
          "success": true
       }
