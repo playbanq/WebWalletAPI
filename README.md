@@ -494,3 +494,6 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       }
     }
     ```
+
+#License and Copyright
+© Playbanq SAS
