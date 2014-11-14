@@ -220,14 +220,13 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     Successful GET response:
     ``` js
     {
-      "payload": [
-         {
-            "currency": <currencyCode>,
+      "payload": {
+         "<currencyCode>" : {
             "available": <number>,
             "pending": <number>,
             "total": <number>,
          }
-      ]
+      }
     }
     ```
     
