@@ -226,7 +226,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
             "currency": <currencyCode>,
             "limits": {
                lower: <number>,
-               upper: <number
+               upper: <number>
             },
          }
       }
