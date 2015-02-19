@@ -12,7 +12,7 @@ A WebWallet is a digital wallet that can store credentials and carry out electro
   **1. Each WebWallet is identified by a URL.**  
   
   ```
-  https://wallet.playbanq.com/:walletID
+  https://wallet.example.com/:walletID
   ```
       
   **2. Transactions are carried out with HTTP methods.**  
@@ -96,7 +96,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
   ```
   GET /oauth/authorize HTTP/1.1
       
-  Host: wallet.playbanq.com
+  Host: wallet.example.com
   ```
    
   - **Implicit grant type:**  
@@ -104,7 +104,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
 
     GET request structure:
     ```
-    GET wallet.playbanq.com/oauth/authorize HTTP/1.1
+    GET wallet.example.com/oauth/authorize HTTP/1.1
         ?response_type=token
         &client_id=CLIENT_ID
         &redirect_uri=REDIRECT_URI
@@ -126,7 +126,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
   
     GET request structure:
     ```
-    GET wallet.playbanq.com/oauth/authorize HTTP/1.1
+    GET wallet.example.com/oauth/authorize HTTP/1.1
         ?response_type=code
         &client_id=CLIENT_ID
         &redirect_uri=REDIRECT_URI
@@ -151,7 +151,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
   ```
   POST /oauth/token HTTP/1.1
 
-  Host: wallet.playbanq.com
+  Host: wallet.example.com
   ```
   
   - **Client credentials grant type:**  
@@ -197,50 +197,50 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     ```
 
 + **/:walletID**  
-  **/:walletNamespace/:walletNumber**  
   ```
   GET /:walletID HTTP/1.1
-      /:walletNamespace/:walletNumber HTTP/1.1
 
-  Host: wallet.playbanq.com
+  Host: wallet.example.com
   Authorization: Bearer <TOKEN>
   ```
   
   -  **/balance**  
-    This endpoint allows applications to check the balance of a WebWallet.
+    Retrieve the balance of a WebWallet.
 
     ```
     GET /:walletID/balance HTTP/1.1
-        /:walletNamespace/:walletNumber/balance HTTP/1.1
 
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     Authorization: Bearer <TOKEN>
     ```
     
     Successful GET response:
     ``` js
     {
+      "header": {
+         "alg": "hs256"
+      },
       "payload": {
          "balance" : {
             "amount": <number>,
             "currency": <currencyCode>,
             "limits": {
-               lower: <number>,
-               upper: <number>
+               "lower": <number>,
+               "upper": <number>
             },
-         }
+         },
+      "signature": <hs256(payload)>
       }
     }
     ```
     
- - **/charges**  
-    This endpoint allows applications to make charges to a WebWallet.
+- **/funds**  
+    Add funds to a WebWallet.
     
     ```
-    POST /:walletID/charges HTTP/1.1
-         /:walletNamespace/:walletNumber/charges HTTP/1.1
+    POST /:walletID/funds HTTP/1.1
 
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     Authorization: Bearer <TOKEN>
     ```
     
@@ -251,19 +251,128 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
          "alg": "hs256"
       },
       "payload": {
-         "endpoint": "charges"
+         "endpoint": "funds",
+         "source": <walletID>,
+         "target": <walletID>,
+         "amount": <number>,
+         "currency": <currencyCode>,
+         
+         // optional:
+         "details": {details},
+         "description": <description>,
+         "metadata": {metadata}
+      },
+      "signature": <hs256(payload)>
+    }
+    ```
+    
+    Successful POST response:
+    ``` js
+    {
+      "header": {
+         "alg": "hs256"
+      },
+      "payload": {
+         "endpoint": "funds",
+         "source": <walletID>,
+         "target": <walletID>,
+         "amount": <number>,
+         "currency": <currencyCode>,
+         
+         "details": {details},
+         "description": <description>,
+         "metadata": {metadata},
+         "timestamp": <timestamp>,
+         "reference": <string>,
+         
+         "success": true
+      },
+      "signature": <hs256(payload)>
+    }
+    ```
+    
+     - **/payments**  
+    Send a payment to a WebWallet.
+    
+    ```
+    POST /:walletID/payments HTTP/1.1
+    
+    Host: wallet.example.com
+    Authorization: Bearer <TOKEN>
+    ```
+    
+    POST request structure:
+    ``` js
+    {
+      "header": {
+         "alg": "hs256"
+      },
+      "payload": {
+         "endpoint": "payments",
          "target": <walletID>,
          "amount": <totalAmount>,
          "currency": <currencyCode>,
+         
          // optional:
-         "details": {
-            "subtotal": <subtotalAmount>,
-            "taxes": <taxAmount>,
-            "fees": <feeAmount>,
-            "other": <otherAmount>
-         },
-         "description": <chargeDescription>,
-         "metadata": {chargeMetadata}
+         "details": {details},
+         "description": <description>,
+         "metadata": {metadata}
+      },
+      "signature": <hs256(payload)>
+    }
+    ```
+    
+    Successful POST response:
+    ``` js
+    {
+      "header": {
+         "alg": "hs256"
+      },
+      "payload": {
+         "endpoint": "payments",
+         "target": <walletID>,
+         "amount": <totalAmount>,
+         "currency": <currencyCode>,
+         
+         "details": {details},
+         "description": <description>,
+         "metadata": {metadata},
+         "timestamp": <timestamp>,
+         "reference": <string>,
+         
+         "success": true
+      },
+      "signature": <hs256(payload)>
+    }
+    ```
+    
+ - **/charges**  
+    Collect a payment from a WebWallet.
+    
+    ```
+    POST /:walletID/charges HTTP/1.1
+
+    Host: wallet.example.com
+    Authorization: Bearer <TOKEN>
+    ```
+    
+    POST request structure:
+    ``` js
+    {
+      "header": {
+         "alg": "hs256"
+      },
+      "payload": {
+         "endpoint": "charges",
+         "source": <walletID>,
+         "target": <walletID>,
+         "amount": <number>,
+         "currency": <currencyCode>,
+         
+         // optional:
+         "details": {details},
+         "description": <description>,
+         "metadata": {metadata}
       },
       "signature": <hs256(payload)>
     }
@@ -274,78 +383,17 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     {
       "payload": {
          "endpoint": "charges",
+         "source": <walletID>,
          "target": <walletID>,
-         "amount": <totalAmount>,
+         "amount": <number>,
          "currency": <currencyCode>,
-         "details": {
-            "subtotal": <subtotalAmount>,
-            "taxes": <taxAmount>,
-            "fees": <feeAmount>,
-            "other": <otherAmount>
-         },
-         "description": <chargeDescription>,
-         "metadata": {chargeMetadata},
-         "timestamp": <creationTime>,
+         
+         "details": {details},
+         "description": <description>,
+         "metadata": {metadata},
+         "timestamp": <timestamp>,
          "reference": <string>,
-         "success": true
-      }
-    }
-    ```
-    
-  - **/payments**  
-    This endpoint allows applications to send a payment to a WebWallet.
-
-    ```
-    POST /:walletID/payments HTTP/1.1
-         /:walletNamespace/:walletNumber/payments HTTP/1.1
-
-    Host: wallet.playbanq.com
-    Authorization: Bearer <TOKEN>
-    ```
-    
-    POST request structure:
-    ``` js
-    {
-      "header": {
-         "alg": "hs256"
-      },
-      "payload": {
-         "endpoint": "payments"
-         "target": <walletID>,
-         "amount": <totalAmount>,
-         "currency": <currencyCode>,
-         // optional:
-         "details": {
-            "subtotal": <subtotalAmount>,
-            "taxes": <taxAmount>,
-            "fees": <feeAmount>,
-            "other": <otherAmount>
-         },
-         "description": <paymentDescription>,
-         "metadata": {paymentMetadata}
-      },
-      "signature": <hs256(payload)>
-    }
-    ```
-    
-    Successful POST response:
-    ``` js
-    {
-      "payload": {
-         "endpoint": "payments",
-         "target": <walletID>,
-         "amount": <totalAmount>,
-         "currency": <currencyCode>,
-         "details": {
-            "subtotal": <subtotalAmount>,
-            "taxes": <taxAmount>,
-            "fees": <feeAmount>,
-            "other": <otherAmount>
-         },
-         "description": <paymentDescription>,
-         "metadata": {paymentMetadata},
-         "timestamp": <creationTime>,
-         "reference": <string>,
+         
          "success": true
       }
     }
@@ -357,7 +405,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     POST /:walletID/invoices HTTP/1.1
          /:walletNamespace/:walletNumber/invoices HTTP/1.1
 
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     Authorization: Bearer <TOKEN>
     ```
     
@@ -416,7 +464,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     POST /:walletID/refills HTTP/1.1
          /:walletNamespace/:walletNumber/refills HTTP/1.1
 
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     Authorization: Bearer <TOKEN>
     ```
     
@@ -458,7 +506,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     POST /:walletID/refunds HTTP/1.1
          /:walletNamespace/:walletNumber/refunds HTTP/1.1
 
-    Host: wallet.playbanq.com
+    Host: wallet.example.com
     Authorization: Bearer <TOKEN>
     ```
     
