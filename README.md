@@ -234,7 +234,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     }
     ```
     
-- **/funds**  
+  - **/funds**  
     Add funds to a WebWallet.
     
     ```
@@ -291,7 +291,7 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
     }
     ```
     
-     - **/payments**  
+  - **/payments**  
     Send a payment to a WebWallet.
     
     ```
