@@ -81,7 +81,7 @@ base64urlEncodedHeader.base64urlEncodedPayload.base64urlEncodedCryptographicSign
 #### Types of Tokens  
 
    - **Access Tokens**  
-     Access tokens are credentials used to access protected resources. They enable a third-party application to obtain limited access to a particular set of resources and operations, either on behalf of a resource owner or on its own behalf. Access tokens can be obtained by making calls to the appropriate API endpoint according to the IETF's RFC 6749 Oauth 2.0 specification.
+     Access tokens are credentials used to access protected resources. They enable a third-party application to obtain limited access to a particular set of resources and operations, either on behalf of a resource owner or on its own behalf. Access tokens can be obtained by making calls to the appropriate API endpoint according to the IETF's RFC 6749 OAuth 2.0 specification.
    - **Refresh Tokens**  
      Refresh tokens are credentials used to obtain access tokens. They enable a third-party application to obtain a new access token when the current access token expires or becomes invalid. A refresh token will be issued along with every access token that is issued for a third-party application and it will remain valid until a new refresh token is requested.
    - **Transaction Tokens**  
@@ -91,7 +91,7 @@ base64urlEncodedHeader.base64urlEncodedPayload.base64urlEncodedCryptographicSign
 The WebWallet API defines how to expose and interact with WebWallets in order to request and carry out electronic commerce transactions.
 
 + **/oauth/authorize**  
-  This endpoint allows applications to obtain access tokens for the implicit and authorization code grant types according to the IETF's RFC 6749 Oauth 2.0 specification.
+  This endpoint allows applications to obtain access tokens for the implicit and authorization code grant types according to the IETF's RFC 6749 OAuth 2.0 specification.
 
   ```
   GET /oauth/authorize HTTP/1.1
@@ -223,7 +223,10 @@ The WebWallet API defines how to expose and interact with WebWallets in order to
       "payload": {
          "balance" : {
             "amount": <number>,
-            "currency": <currencyCode>,
+            "currency": {
+              "code": <currencyCode>,
+              "circle": <circleName>
+            },
             "limits": {
                "lower": <number>,
                "upper": <number>
